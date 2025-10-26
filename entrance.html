@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - My Little Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #fafafa;
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .entrance {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .entrance img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .entrance img:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      margin-top: 1.5em;
+      animation: fadeIn 0.6s ease;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2em;
+      margin: 0.5em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="entrance">
+    <!-- 🖼️ あなたの好きな画像をここに -->
+    <img src="assets/images/entrance.jpg" alt="entrance" id="door">
+    <nav id="menu">
+      <a href="art.html">Art</a>
+      <a href="music.html">Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <script>
+    const door = document.getElementById('door');
+    const menu = document.getElementById('menu');
+    let opened = false;
+
+    door.addEventListener('click', () => {
+      if (!opened) {
+        menu.style.display = 'flex';
+        door.style.opacity = '0.6';
+        opened = true;
+      } else {
+        menu.style.display = 'none';
+        door.style.opacity = '1';
+        opened = false;
+      }
+    });
+  </script>
+</body>
+</html>
